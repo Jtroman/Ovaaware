@@ -58,7 +58,7 @@ export default function HomePage() {
       <section className="bg-card p-8 md:p-12 rounded-lg shadow-xl flex flex-col md:flex-row items-center gap-8">
         <div className="md:w-1/2">
           <Image 
-            src="https://firebasestorage.googleapis.com/v0/b/carbon-ray-421000.appspot.com/o/92522228-7940-40b9-8a9d-730438f55b07.png?alt=media&token=6f5883ac-3cc5-422d-8766-d195ac897e58" 
+            src="https://placehold.co/600x400.png" 
             alt="Illustration representing women's health and support" 
             width={600} 
             height={400}
