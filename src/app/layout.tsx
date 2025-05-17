@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { MainLayout } from '@/components/layout/main-layout';
 import { siteConfig } from '@/config/site';
+import { AssessmentStoreProvider } from '@/lib/store/assessment-store';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -33,7 +34,9 @@ export default function RootLayout({
       <body 
         className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}
       >
-        <MainLayout>{children}</MainLayout>
+        <AssessmentStoreProvider>
+          <MainLayout>{children}</MainLayout>
+        </AssessmentStoreProvider>
       </body>
     </html>
   );

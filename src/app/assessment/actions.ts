@@ -1,7 +1,21 @@
 "use server";
 
-import { RiskAssessmentInput, RiskAssessmentOutput, riskAssessment } from '@/ai/flows/risk-assessment';
+import { RiskAssessmentInput, RiskAssessmentOutput } from '@/ai/flows/risk-assessment';
 import { RiskAssessmentInputSchema } from '@/lib/schema';
+
+// Mock assessment result
+const mockAssessmentResult: RiskAssessmentOutput = {
+  riskScore: 45,
+  riskLevel: "Moderate",
+  keyInfluencingFactors: [
+    "Age",
+    "Family History",
+    "Genetic Mutations",
+    "Lifestyle",
+    "Medical History"
+  ],
+  nextSteps: "Based on your risk factors, we recommend regular check-ups and lifestyle modifications."
+};
 
 export async function submitOvaAwareAssessment(
   data: RiskAssessmentInput
@@ -12,8 +26,8 @@ export async function submitOvaAwareAssessment(
   }
 
   try {
-    const result = await riskAssessment(validationResult.data);
-    return { data: result };
+    // Return mock data instead of calling the API
+    return { data: mockAssessmentResult };
   } catch (e) {
     console.error("Error in submitOvaAwareAssessment:", e);
     if (e instanceof Error) {

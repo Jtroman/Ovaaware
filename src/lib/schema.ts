@@ -2,28 +2,37 @@ import { z } from 'zod';
 
 // Define RiskAssessmentInputSchema here
 export const RiskAssessmentInputSchema = z.object({
-  demographics: z.object({
-    age: z.number().describe('Age of the patient.'),
-    race: z.string().describe('Race of the patient.'),
-  }).describe('Demographic information of the patient.'),
-  reproductiveHistory: z.object({
-    parity: z.number().describe('Number of pregnancies the patient has had.'),
-    ageAtFirstBirth: z.number().describe('Age at first birth.'),
-    menopausalStatus: z.string().describe('Menopausal status of the patient.'),
-    hormoneTherapy: z.boolean().describe('Whether the patient is on hormone therapy.'),
-  }).describe('Reproductive history of the patient.'),
-  behavioralFactors: z.object({
-    smokingStatus: z.string().describe('Smoking status of the patient.'),
-    bmi: z.number().describe('Body mass index of the patient.'),
-  }).describe('Behavioral factors of the patient.'),
-  personalMedicalHistory: z.object({
-    historyOfOvarianCancer: z.boolean().describe('Whether the patient has a history of ovarian cancer.'),
-    historyOfBreastCancer: z.boolean().describe('Whether the patient has a history of breast cancer.'),
-  }).describe('Personal medical history of the patient.'),
-  familyCancerHistory: z.object({
-    numberOfFirstDegreeRelativesWithOvarianCancer: z.number().describe('Number of first-degree relatives with ovarian cancer.'),
-    numberOfFirstDegreeRelativesWithBreastCancer: z.number().describe('Number of first-degree relatives with breast cancer.'),
-  }).describe('Family cancer history of the patient.'),
+  // Demographics
+  race: z.enum(['White', 'Ashkenazi', 'Black', 'Asian', 'Hispanic', 'Native Hawaiian/Pacific Islander']),
+  age: z.number().min(0).max(120),
+  higher_ed: z.enum(['less_than_high_school', 'high_school', 'some_college', 'college', 'graduate']),
+  
+  // Reproductive History
+  prev_preg: z.number().min(0),
+  time_since_preg: z.number().min(0),
+  age_at_first_preg: z.number().min(0),
+  oral_contra: z.boolean(),
+  type_contra: z.enum(['Pill', 'IUD', 'Implant', 'None']),
+  len_contra: z.number().min(0),
+  menopausal: z.boolean(),
+  HRT: z.boolean(),
+  period_onset: z.number().min(0),
+  
+  // Physical Characteristics
+  weight: z.number().positive(),
+  height: z.number().positive(),
+  
+  // Family History
+  immed_ovarian_family: z.number().min(0),
+  immed_breast_family: z.number().min(0),
+  distant_ovarian_family: z.boolean(),
+  distant_breast_family: z.boolean(),
+  
+  // Health Conditions
+  endo: z.boolean(),
+  irreg_period: z.boolean(),
+  freq_bloat: z.boolean(),
+  smoke: z.boolean(),
 });
 
 // Infer the type from the schema defined in this file
@@ -31,26 +40,26 @@ export type RiskAssessmentInput = z.infer<typeof RiskAssessmentInputSchema>;
 
 // Default values using the locally defined schema
 export const defaultRiskAssessmentValues: RiskAssessmentInput = {
-  demographics: {
-    age: 30,
-    race: '',
-  },
-  reproductiveHistory: {
-    parity: 0,
-    ageAtFirstBirth: 0,
-    menopausalStatus: '',
-    hormoneTherapy: false,
-  },
-  behavioralFactors: {
-    smokingStatus: '',
-    bmi: 22,
-  },
-  personalMedicalHistory: {
-    historyOfOvarianCancer: false,
-    historyOfBreastCancer: false,
-  },
-  familyCancerHistory: {
-    numberOfFirstDegreeRelativesWithOvarianCancer: 0,
-    numberOfFirstDegreeRelativesWithBreastCancer: 0,
-  },
+  race: 'White',
+  age: 0,
+  higher_ed: 'high_school',
+  prev_preg: 0,
+  time_since_preg: 0,
+  age_at_first_preg: 0,
+  oral_contra: false,
+  type_contra: 'None',
+  len_contra: 0,
+  menopausal: false,
+  HRT: false,
+  period_onset: 0,
+  weight: 120,
+  height: 64,
+  immed_ovarian_family: 0,
+  immed_breast_family: 0,
+  distant_ovarian_family: false,
+  distant_breast_family: false,
+  endo: false,
+  irreg_period: false,
+  freq_bloat: false,
+  smoke: false,
 };
