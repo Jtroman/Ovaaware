@@ -9,6 +9,7 @@ import Link from "next/link";
 const handleSignup = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault(); // Prevent default form submission
   console.log('Signup form submitted'); // Placeholder action
+  alert('Signup form submitted! Check the console for details. Make sure all fields are filled.'); // Added alert for visibility
   // TODO: Implement actual signup logic here (e.g., API call)
 };
 
