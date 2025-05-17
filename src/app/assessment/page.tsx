@@ -34,47 +34,44 @@ const ConsentSection = ({ onConsent }: { onConsent: () => void }) => {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-200 via-pink-300 to-pink-400 p-4"
+      className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-teal-500 via-teal-400 to-teal-300 p-4"
     >
-      <Card className="max-w-4xl w-full bg-white/90 backdrop-blur-lg shadow-xl">
+      <Card className="max-w-4xl w-full bg-white/95 backdrop-blur-lg shadow-xl">
         <CardHeader className="text-center pb-4">
-          <CardTitle className="text-3xl font-bold text-pink-700">
-            Your data can save lives—starting with yours.
+          <CardTitle className="text-3xl font-bold text-teal-700">
+            Your data can save lives. Starting with yours.
           </CardTitle>
           <CardDescription className="text-base text-gray-600">
             Join us in revolutionizing ovarian cancer detection through secure data sharing
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="flex flex-col items-center text-center p-3 bg-pink-50 rounded-lg">
-              <Lock className="h-6 w-6 text-pink-600 mb-1" />
-              <h3 className="font-semibold text-sm mb-1">Security First</h3>
-              <p className="text-xs text-gray-600">HIPAA-compliant with AES-256 encryption</p>
+          <div className="flex items-center justify-center space-x-8 mb-6">
+            <div className="flex items-center space-x-2">
+              <Shield className="h-5 w-5 text-teal-600" />
+              <span className="text-sm text-gray-600">HIPAA Compliant</span>
             </div>
-            <div className="flex flex-col items-center text-center p-3 bg-pink-50 rounded-lg">
-              <Shield className="h-6 w-6 text-pink-600 mb-1" />
-              <h3 className="font-semibold text-sm mb-1">Privacy Guaranteed</h3>
-              <p className="text-xs text-gray-600">GDPR-compliant with full data control</p>
+            <div className="flex items-center space-x-2">
+              <Lock className="h-5 w-5 text-teal-600" />
+              <span className="text-sm text-gray-600">End-to-End Encrypted</span>
             </div>
-            <div className="flex flex-col items-center text-center p-3 bg-pink-50 rounded-lg">
-              <Dna className="h-6 w-6 text-pink-600 mb-1" />
-              <h3 className="font-semibold text-sm mb-1">Personalized Care</h3>
-              <p className="text-xs text-gray-600">Tailored risk assessment & insights</p>
+            <div className="flex items-center space-x-2">
+              <Dna className="h-5 w-5 text-teal-600" />
+              <span className="text-sm text-gray-600">Research Approved</span>
             </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-pink-50/50 p-4 rounded-lg">
-              <h3 className="font-semibold text-sm text-pink-700 mb-2">Data Usage</h3>
+            <div className="bg-teal-50/50 p-4 rounded-lg">
+              <h3 className="font-semibold text-sm text-teal-700 mb-2">Data Usage</h3>
               <ul className="text-xs text-gray-700 space-y-1">
                 <li>• Personalized risk assessment</li>
                 <li>• Early detection strategies</li>
                 <li>• Anonymous research contribution</li>
               </ul>
             </div>
-            <div className="bg-pink-50/50 p-4 rounded-lg">
-              <h3 className="font-semibold text-sm text-pink-700 mb-2">Your Rights</h3>
+            <div className="bg-teal-50/50 p-4 rounded-lg">
+              <h3 className="font-semibold text-sm text-teal-700 mb-2">Your Rights</h3>
               <ul className="text-xs text-gray-700 space-y-1">
                 <li>• Request data deletion anytime</li>
                 <li>• Control data sharing preferences</li>
@@ -100,7 +97,7 @@ const ConsentSection = ({ onConsent }: { onConsent: () => void }) => {
           <Button
             onClick={onConsent}
             disabled={!hasConsented}
-            className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 disabled:opacity-50"
+            className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2 rounded-full shadow-lg transition-all duration-300 disabled:opacity-50"
           >
             I Understand and Consent
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -184,41 +181,41 @@ export default function AssessmentPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 py-6 px-4 overflow-x-hidden">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-teal-400 via-teal-300 to-teal-200 py-6 px-4 overflow-x-hidden">
       <div className="container mx-auto max-w-2xl">
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <Card className="shadow-[0_4px_20px_-4px_rgba(236,72,153,0.2)]">
+          <Card className="shadow-[0_4px_20px_-4px_rgba(20,184,166,0.2)] bg-white/95 backdrop-blur-sm">
             <CardHeader className="pb-4">
-              <CardTitle className="text-2xl md:text-3xl text-center text-pink-700">
+              <CardTitle className="text-2xl md:text-3xl text-center text-teal-700">
                 {steps[currentStep].title}
               </CardTitle>
-              <CardDescription className="text-center text-pink-500">
+              <CardDescription className="text-center text-teal-500">
                 Step {currentStep + 1} of {steps.length}
               </CardDescription>
               <div className="mt-4 relative">
-                <div className="h-2 w-full bg-pink-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-teal-100 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-pink-400 to-pink-600"
+                    className="h-full bg-gradient-to-r from-teal-400 to-teal-600"
                     initial={{ width: 0 }}
                     animate={{ width: `${progressValue}%` }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>
-                <div className="mt-2 flex justify-between text-sm text-pink-400">
+                <div className="mt-2 flex justify-between text-sm text-teal-400">
                   {steps.map((step, index) => (
                     <div
                       key={step.id}
                       className={`flex flex-col items-center ${
-                        index <= currentStep ? 'text-pink-600' : 'text-pink-300'
+                        index <= currentStep ? 'text-teal-600' : 'text-teal-300'
                       }`}
                     >
                       <div
                         className={`w-3 h-3 rounded-full mb-1 ${
-                          index <= currentStep ? 'bg-pink-600' : 'bg-pink-200'
+                          index <= currentStep ? 'bg-teal-600' : 'bg-teal-200'
                         }`}
                       />
                       <span className="text-xs hidden md:block">{step.title}</span>
@@ -252,13 +249,13 @@ export default function AssessmentPage() {
                     </motion.div>
                   </AnimatePresence>
                 </CardContent>
-                <CardFooter className="flex justify-between pt-4 pb-4 px-6 border-t border-pink-100 bg-white/50">
+                <CardFooter className="flex justify-between pt-4 pb-4 px-6 border-t border-teal-100 bg-white/50">
                   <Button
                     type="button"
                     variant="outline"
                     onClick={handlePrevious}
                     disabled={currentStep === 0}
-                    className="border-pink-300 text-pink-600 hover:bg-pink-50"
+                    className="border-teal-300 text-teal-600 hover:bg-teal-50"
                   >
                     <ArrowLeft className="mr-2 h-4 w-4" />
                     Previous
@@ -267,7 +264,7 @@ export default function AssessmentPage() {
                     <Button
                       type="button"
                       onClick={handleNext}
-                      className="bg-pink-600 hover:bg-pink-700"
+                      className="bg-teal-600 hover:bg-teal-700"
                     >
                       Next
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -276,7 +273,7 @@ export default function AssessmentPage() {
                     <Button
                       type="submit"
                       disabled={form.formState.isSubmitting}
-                      className="bg-pink-600 hover:bg-pink-700"
+                      className="bg-teal-600 hover:bg-teal-700"
                     >
                       {form.formState.isSubmitting ? (
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />

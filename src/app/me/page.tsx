@@ -64,7 +64,7 @@ export default function MePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-200 to-pink-300 py-8 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-teal-100 via-teal-200 to-teal-300 py-8 px-4">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -72,14 +72,14 @@ export default function MePage() {
           transition={{ duration: 0.5 }}
         >
           {/* Profile Header */}
-          <Card className="mb-6 bg-white/90 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(236,72,153,0.2)]">
+          <Card className="mb-6 bg-white/90 backdrop-blur-sm shadow-[0_4px_20px_-4px_rgba(20,184,166,0.2)]">
             <CardContent className="pt-6">
               <div className="flex items-center gap-6">
-                <Avatar className="h-24 w-24 shadow-[0_2px_10px_-2px_rgba(236,72,153,0.3)]">
+                <Avatar className="h-24 w-24 shadow-[0_2px_10px_-2px_rgba(20,184,166,0.3)]">
                   {profile?.avatarUrl ? (
                     <AvatarImage src={profile.avatarUrl} alt={profile?.name} />
                   ) : (
-                    <AvatarFallback className="text-2xl bg-pink-200 text-pink-700">
+                    <AvatarFallback className="text-2xl bg-teal-200 text-teal-700">
                       {profile?.name ? getInitials(profile.name) : 'ME'}
                     </AvatarFallback>
                   )}
