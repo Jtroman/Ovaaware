@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -5,13 +6,14 @@
  *
  * - riskAssessment - A function that handles the risk assessment process.
  * - RiskAssessmentInput - The input type for the riskAssessment function.
+ * - RiskAssessmentInputSchema - The Zod schema for the input.
  * - RiskAssessmentOutput - The return type for the riskAssessment function.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
-const RiskAssessmentInputSchema = z.object({
+export const RiskAssessmentInputSchema = z.object({
   demographics: z.object({
     age: z.number().describe('Age of the patient.'),
     race: z.string().describe('Race of the patient.'),
