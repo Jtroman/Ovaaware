@@ -78,17 +78,23 @@ export default function AssessmentResults() {
           <CardContent>
             <div className="flex items-center justify-between">
               <div>
-                <p className={`text-4xl font-bold ${riskColor}`}>{riskCategory}</p>
-                <p className="text-gray-600 mt-2">Risk Level</p>
+                <p className={`text-4xl font-bold ${riskColor}`}>
+                  {(assessmentResults.riskScore / 100).toFixed(2)}x
+                </p>
+                <p className="text-gray-600 mt-2">More likely to have ovarian cancer</p>
               </div>
               <Progress 
-                value={overallRiskScore} 
+                value={Math.min(assessmentResults.riskScore, 100)} 
                 className="w-1/2"
                 style={{
                   '--progress-background': 'linear-gradient(to right, #ec4899, #db2777)',
                 } as React.CSSProperties}
               />
             </div>
+            <p className="mt-4 text-sm text-gray-600">
+              Based on your risk factors, you are {(assessmentResults.riskScore / 100).toFixed(2)} times more likely 
+              than the average person to develop ovarian cancer. This puts you in the <span className={riskColor}>{assessmentResults.riskLevel}</span> risk category.
+            </p>
           </CardContent>
         </Card>
 
